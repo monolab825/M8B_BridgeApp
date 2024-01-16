@@ -52,7 +52,7 @@ const ConnectFrom = () => {
           </button>
         </div>
         <p className='py-3'>To:</p>
-        <div className="lg:flex md:flex w-full gap-1"  >
+        <div className="lg:flex md:flex sm:flex w-full gap-1"  >
           <div className="py-2 bg-gray-800 rounded-xl py-5 px-5 mt-2">
             <Image src={ETH} alt="alt" width={50} height={50} className="m-auto"/>
             <div className='text-center pt-4'>
