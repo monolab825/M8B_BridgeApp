@@ -7,8 +7,6 @@ import BLYX from '@/public/blyx.svg';
 import ArrowUp from "@/public/arrowUp.svg";
 import ArrowDown from "@/public/arrowDown.svg";
 
-import IconButton from "@/components/global/IconButton";
-
 const ConnectFrom = () => {
   return (
     <div className='lg:w-[617px] xl:w-[617px] mx-auto mt-5 text-white'>
