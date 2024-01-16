@@ -1,19 +1,17 @@
-import Header from './Header';
+import Header from "./Header";
 
 type Props = {
   children: React.ReactNode;
-  className?: String
+  className?: String;
 };
 
-const Layout = ({children, className = ''}: Props) => {
+const Layout = ({ children, className = "" }: Props) => {
   return (
-    <div>
-      <Header/>
-      <main className={`${className}`}>
-        {children}
-      </main>
+    <div className="">
+      <Header />
+      <main className={`${className}`}>{children}</main>
     </div>
-  )
-}
+  );
+};
 
 export default Layout;

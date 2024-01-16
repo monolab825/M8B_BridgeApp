@@ -1,5 +1,5 @@
-import { motion, MotionProps } from 'framer-motion';
-import { ElementType, HTMLAttributes, ReactNode } from 'react';
+import { motion, MotionProps } from "framer-motion";
+import { ElementType, HTMLAttributes, ReactNode } from "react";
 
 interface Props extends HTMLAttributes<HTMLElement> {
   as?: ElementType;
@@ -11,9 +11,9 @@ interface Props extends HTMLAttributes<HTMLElement> {
 
 const Wrapper = ({
   children,
-  as = 'section',
-  className = '',
-  id = '',
+  as = "section",
+  className = "",
+  id = "",
   animate = true,
   ...rest
 }: Props & MotionProps) => {
@@ -27,7 +27,7 @@ const Wrapper = ({
     );
   }
 
-  if (as === 'section') {
+  if (as === "section") {
     return (
       <motion.section
         id={id}
