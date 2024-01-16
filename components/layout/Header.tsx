@@ -1,12 +1,8 @@
 'use client';
-
-// import { Button, DarkModeButton, Link as CLink, NavButton } from '@/components';
-import Logo from "@/public/logo.svg";
 import Image from "next/image";
-import { fadeIn, slideIn } from '@/styles/animations';
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
+
+import Logo from "@/public/logo.svg";
 
 const LogoPart = () => {
 	return (
@@ -29,16 +25,10 @@ const NavButtons = () => {
 
 const Navbar = () => {
   return (
-    <motion.header
-      variants={fadeIn(0.5)}
-      initial="hidden"
-      animate="show"
-      id="navbar"
-			className="flex justify-between px-8 py-4 md:px-6 xl:px-12 duration-500"
-    >
+    <div className="flex justify-between px-8 py-4 md:px-6 xl:px-12">
 			<LogoPart></LogoPart>
 			<NavButtons></NavButtons>
-    </motion.header>
+    </div>
   );
 };
 
