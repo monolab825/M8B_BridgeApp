@@ -1,29 +1,30 @@
 import Image from 'next/image';
-import Link from 'next/Link';
+import Link from 'next/link';
+
 import ETH from '@/public/eth.svg';
 import LYX from '@/public/lyx.svg';
 import BLYX from '@/public/blyx.svg';
-
 import ArrowUp from "@/public/arrowUp.svg";
 import ArrowDown from "@/public/arrowDown.svg";
+
 import IconButton from "@/components/global/IconButton";
 
 const ConnectFrom = () => {
   return (
-    <div className='max-w-screen-md w-[617px] mx-auto mt-5 text-white'>
+    <div className='lg:w-[617px] xl:w-[617px] mx-auto mt-5 text-white'>
       <h1 className='py-1 px-4 font-bold text-2xl text-xl'>Transfer your tokens across blockchains</h1>
       <p className='py-1 px-4 mb-2 text-sm'>Securely transfer tokens between the LUKSO and Ethereum blockchains. <Link href="/" className="text-blue-200 decoration-blue-200 underline decoration-solid">How it works</Link></p>
       <div className='py-10 px-10 rounded-xl border-2 border-blue-900 bg-gray-900'>
         <p className='py-3'>From:</p>
-        <div className="flex w-full gap-1"  >
-          <div className="py-2 bg-gray-800 rounded-xl py-5 px-5">
+        <div className="lg:flex md:flex sm:flex w-full gap-1"  >
+          <div className="py-2 bg-gray-800 rounded-xl py-5 px-5 mt-2">
             <Image src={BLYX} alt="alt" width={50} height={50} className="m-auto"/>
             <div className='text-center pt-4'>
               <p className=''>LUKSO</p>  
               <p className=''>Connect wallet</p>
             </div>
           </div>
-          <div className="grow bg-gray-800 rounded-xl py-5 px-5 ">
+          <div className="grow bg-gray-800 rounded-xl py-5 px-5 mt-2">
             <p className="text-blue-200 text-sm">Receive:</p>
             <div className="flex justify-between mt-3">
               <div className="text-2xl">0.0</div>
@@ -42,7 +43,7 @@ const ConnectFrom = () => {
             </div>
           </div>
         </div>
-        <div className='mt-2 text-center'>
+        <div className='mt-5 text-center'>
           <button className="bg-gray-800 rounded-md py-2 px-2 mx-1 ">
             <div className="flex justify-center">
               <Image src={ArrowUp} alt="up"/>
@@ -51,15 +52,15 @@ const ConnectFrom = () => {
           </button>
         </div>
         <p className='py-3'>To:</p>
-        <div className="flex w-full gap-1"  >
-          <div className="py-2 bg-gray-800 rounded-xl py-5 px-5">
-              <Image src={ETH} alt="alt" width={50} height={50} className="m-auto"/>
+        <div className="lg:flex md:flex w-full gap-1"  >
+          <div className="py-2 bg-gray-800 rounded-xl py-5 px-5 mt-2">
+            <Image src={ETH} alt="alt" width={50} height={50} className="m-auto"/>
             <div className='text-center pt-4'>
               <p className=''>Ethereum</p>  
               <p className=''>Connect wallet</p>
             </div>
           </div>
-          <div className="grow bg-gray-800 rounded-xl py-5 px-5 ">
+          <div className="grow bg-gray-800 rounded-xl py-5 px-5 mt-2 ">
             <p className="text-blue-200 text-sm">Send:</p>
             <div className="flex justify-between mt-3">
               <div>
