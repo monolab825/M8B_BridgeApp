@@ -17,20 +17,19 @@ const ConnectFrom = () => {
         <p className='py-3'>From:</p>
         <div className="flex w-full gap-1"  >
           <div className="py-2 bg-gray-800 rounded-xl py-5 px-5">
-              <Image src={ETH} alt="alt" width={50} height={50} className="m-auto"/>
+            <Image src={BLYX} alt="alt" width={50} height={50} className="m-auto"/>
             <div className='text-center pt-4'>
-              <p className=''>Ethereum</p>  
-              <p className=''>0x8d...df87</p>
+              <p className=''>LUKSO</p>  
+              <p className=''>Connect wallet</p>
             </div>
           </div>
           <div className="grow bg-gray-800 rounded-xl py-5 px-5 ">
-            <p className="text-blue-200 text-sm">Send:</p>
+            <p className="text-blue-200 text-sm">Receive:</p>
             <div className="flex justify-between mt-3">
-              <div>
-                <h1 className="text-2xl">0.0</h1></div>
-              <div className="flex justify-between">
-                <Image src={LYX} alt="lyx" className="inline-block"/>
-                <div className="ml-2 mt-1">wLYX</div>
+              <div className="text-2xl">0.0</div>
+              <div className="flex justify-between ">
+                <Image src={LYX} alt="lyx"/>
+                <div className="ml-2 mt-1">LYX</div>
               </div>
             </div>
             <div className="mt-[25px]">
@@ -54,19 +53,20 @@ const ConnectFrom = () => {
         <p className='py-3'>To:</p>
         <div className="flex w-full gap-1"  >
           <div className="py-2 bg-gray-800 rounded-xl py-5 px-5">
-            <Image src={BLYX} alt="alt" width={50} height={50} className="m-auto"/>
+              <Image src={ETH} alt="alt" width={50} height={50} className="m-auto"/>
             <div className='text-center pt-4'>
-              <p className=''>LUKSO</p>  
-              <p className=''>buddyk#44</p>
+              <p className=''>Ethereum</p>  
+              <p className=''>Connect wallet</p>
             </div>
           </div>
           <div className="grow bg-gray-800 rounded-xl py-5 px-5 ">
-            <p className="text-blue-200 text-sm">Receive:</p>
+            <p className="text-blue-200 text-sm">Send:</p>
             <div className="flex justify-between mt-3">
-              <div className="text-2xl">0.0</div>
-              <div className="flex justify-between ">
-                <Image src={LYX} alt="lyx"/>
-                <div className="ml-2 mt-1">LYX</div>
+              <div>
+                <h1 className="text-2xl">0.0</h1></div>
+              <div className="flex justify-between">
+                <Image src={LYX} alt="lyx" className="inline-block"/>
+                <div className="ml-2 mt-1">wLYX</div>
               </div>
             </div>
             <div className="mt-[25px] text-blue-200">
@@ -75,7 +75,7 @@ const ConnectFrom = () => {
           </div>
         </div>
         <div>
-          <button className='w-full bg-indigo-700 text-white hover:bg-indigo-800 rounded-xl py-4 px-4 text-center mt-5'>Swap</button>
+          <button className='w-full bg-indigo-700 text-white hover:bg-indigo-800 rounded-xl py-4 px-4 text-center mt-5'>Connect Wallet</button>
         </div>
       </div>
       
