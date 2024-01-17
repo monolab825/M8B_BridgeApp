@@ -19,10 +19,10 @@ const LogoPart = () => {
 
 const NavButtons = () => {
   const { openConnectModal } = useConnectModal();
-  const { address, isConnected } = useAccount();
+  const { isConnected } = useAccount();
   const { disconnect } = useDisconnect();
-  const { data: ensName } = useEnsName({ address });
-  const { data: ensAvatar } = useEnsAvatar({ name: ensName! });
+  // const { data: ensName } = useEnsName({ address });
+  // const { data: ensAvatar } = useEnsAvatar({ name: ensName! });
 
   return (
     <div className="mt-3 flex">
@@ -32,15 +32,23 @@ const NavButtons = () => {
       >
         History
       </button>
-      {!isConnected && (
-        <button
-          type="button"
-          className=" bg-indigo-700  text-white px-5 py-2.5 me-2 mb-2 text-sm rounded-lg hover:bg-blue-900 "
-          onClick={openConnectModal}
-        >
-          Connect Wallet
-        </button>
-      )}
+        {!isConnected ? (
+          <button
+            type="button"
+            className=" bg-indigo-700  text-white px-5 py-2.5 me-2 mb-2 text-sm rounded-lg hover:bg-blue-900 "
+            onClick={openConnectModal}
+          >
+            Connect Wallet
+          </button>
+        ) : (
+          <button
+            type="button"
+            className=" bg-indigo-700  text-white px-5 py-2.5 me-2 mb-2 text-sm rounded-lg"
+            onClick={() => {disconnect()}}
+          >
+            Wallet
+          </button>
+        )}
     </div>
   );
 };

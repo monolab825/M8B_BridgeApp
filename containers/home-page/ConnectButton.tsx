@@ -5,8 +5,8 @@ const ConnectButton = () => {
   const { openConnectModal } = useConnectModal();
   const { address, isConnected } = useAccount();
   const { disconnect } = useDisconnect();
-  const { data: ensName } = useEnsName({ address });
-  const { data: ensAvatar } = useEnsAvatar({ name: ensName! });
+  // const { data: ensName } = useEnsName({ address });
+  // const { data: ensAvatar } = useEnsAvatar({ name: ensName! });
 
   const swap = () => {
     // swap logic

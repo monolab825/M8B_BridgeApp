@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
-import { useAccount, useDisconnect, useEnsAvatar, useEnsName } from "wagmi";
+import { useAccount, useDisconnect, useEnsAvatar, useEnsName, useBalance } from "wagmi";
+import { fetchBalance } from '@wagmi/core'
+import { useEffect, useState } from "react";
 
 type connectProps = {
   chainIcon: string;
@@ -12,6 +14,8 @@ type connectProps = {
   isBallance: Boolean;
   isConnected: Boolean;
 };
+
+let accountBalance = 0;
 
 const Chain = ({
   chainIcon,
@@ -25,8 +29,31 @@ const Chain = ({
   const { openConnectModal } = useConnectModal();
   const { address, isConnected } = useAccount();
   const { disconnect } = useDisconnect();
-  const { data: ensName } = useEnsName({ address });
-  const { data: ensAvatar } = useEnsAvatar({ name: ensName! });
+  const { data, isError, isLoading } = useBalance({
+    address: '0xA0Cf798816D4b9b9866b5330EEa46a18382f251e',
+  })
+  // const [ accountBalance, setAccountBalance ] = useState("0");
+  // const { data: ensName } = useEnsName({ address });
+  // const { data: ensAvatar } = useEnsAvatar({ name: ensName! });
+  // useEffect(() => {
+  //   getBalance();
+  // }, [isConnected]);
+
+  // const getBalance = async () => {
+  //   if(!isConnected || !address) {
+  //     return;
+  //   }
+  //   const accountBalance = await fetchBalance({
+  //     address: "0xA0Cf798816D4b9b9866b5330EEa46a18382f251e",
+  //     chainId: 1,
+  //   })
+  //   // setAccountBalance(balance.formatted);
+  
+  //   console.log("blance", balance.formatted);
+  // }
+  function truncate(str: string, a:number, b:number){
+    return (str.length > a && str.length > b) ? str.slice(0, a-1) + '...' + str.slice(b) : str;
+  };
 
   const handleMax = () => {
     alert("handle max");
@@ -51,7 +78,7 @@ const Chain = ({
               Connect Wallet
             </span>
           ) : (
-            <p className="">{buttonText}</p>
+            <p className="">{truncate(address as string, 5, 37)}</p>
           )}
         </div>
       </div>
@@ -77,7 +104,7 @@ const Chain = ({
             <div className="mr-auto">$0.0</div>
             {isBallance ? (
               <div className="ml-auto">
-                Balance: 46.332
+                Balance: {isConnected ? data?.formatted : 0}
                 <span
                   className="underline ml-2 hover:cursor-pointer"
                   onClick={handleMax}

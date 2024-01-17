@@ -26,7 +26,7 @@ import {
   zora,
 } from 'wagmi/chains';
 
-const luxochain = {
+const luxochain_mainnet = {
     id: 42,
     name: 'LUKSO',
     network: 'LUKSO',
@@ -48,21 +48,44 @@ const luxochain = {
     testnet: false,
 }
 
+const luxochain_testnet = {
+  id: 42,
+  name: 'LUKSO Testnet',
+  network: 'LUKSO Testnet',
+  iconUrl: 'https://icons8.com/icon/Lvi9wlesXBIE/chain',
+  iconBackground: '#fff',
+  nativeCurrency: {
+    decimals: 18,
+    name: '	LYXt',
+    symbol: '	LYXt',
+  },
+  rpcUrls: {
+    public: { http: ['https://rpc.testnet.lukso.network/'] },
+    default: { http: ['https://rpc.testnet.lukso.network/'] },
+  },
+  blockExplorers: {
+    default: { name: 'Luxoscan', url: 'https://explorer.execution.testnet.lukso.network/' },
+    etherscan: { name: 'Luxoscan', url: 'https://explorer.execution.testnet.lukso.network/' },
+  },
+  testnet: true,
+}
+
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
-    // mainnet,
+    mainnet,
     // polygon,
     // optimism,
     // arbitrum,
     // base,
     // zora,
-    // ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [sepolia] : []),
-    luxochain
+    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [sepolia] : []),
+    luxochain_mainnet,
+    luxochain_testnet
   ],
   [publicProvider()]
 );
 
-const projectId = '733cdc250103901f63551441490bea64';
+const projectId:string = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECTID || "";
 
 const { wallets } = getDefaultWallets({
   appName: 'RainbowKit Wallet',
