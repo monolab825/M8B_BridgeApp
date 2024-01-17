@@ -32,13 +32,21 @@ const NavButtons = () => {
       >
         History
       </button>
-      {!isConnected && (
+      {!isConnected ? (
         <button
           type="button"
           className=" bg-indigo-700  text-white px-5 py-2.5 me-2 mb-2 text-sm rounded-lg hover:bg-blue-900 "
-          onClick={openConnectModal}
+          onClick={() => openConnectModal}
         >
           Connect Wallet
+        </button>
+      ) : (
+        <button
+          type="button"
+          className=" bg-indigo-700  text-white px-5 py-2.5 me-2 mb-2 text-sm rounded-lg"
+          onClick={() => disconnect}
+        >
+          Wallet
         </button>
       )}
     </div>
