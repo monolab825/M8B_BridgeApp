@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import ETH from "@/public/images/eth.svg";
 import LYX from "@/public/images/lyx.svg";
@@ -5,6 +6,7 @@ import BLYX from "@/public/images/blyx.svg";
 
 import Chain from "./Chain";
 import ReplaceButton from "./ReplaceButton";
+import ConnectButton from "./ConnectButton";
 
 export default function Home() {
   return (
@@ -46,6 +48,7 @@ export default function Home() {
             isConnected={false}
             isBallance={false}
           />
+          <ConnectButton />
         </div>
       </div>
     </div>
