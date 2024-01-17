@@ -40,7 +40,8 @@ const NavButtons = () => {
           smallScreen: false,
           largeScreen: true,
         }}
-        label="Connect Wallet" 
+        label="Connect Wallet"
+        chainStatus="none"//name or none 
       />
     </div>
   );
