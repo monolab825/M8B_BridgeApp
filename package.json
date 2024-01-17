@@ -11,10 +11,13 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@rainbow-me/rainbowkit": "^1.3.3",
     "framer-motion": "^10.18.0",
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "viem": "~1.21.4",
+    "wagmi": "~1.4.13"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.2.0",
