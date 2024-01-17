@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { mainnet } from '@wagmi/core/chains'
+import { useConnectModal, useChainModal } from "@rainbow-me/rainbowkit";
+import { useNetwork } from 'wagmi'
 
 import ETH from "@/public/images/eth.svg";
 import LYX from "@/public/images/lyx.svg";
@@ -10,6 +13,7 @@ import SwapTokenForm from "./SwapTokenForm";
 import SwapButton from "./SwapButton";
 
 import { chainType } from "@/utils/types";
+
 
 const ETH_FORM: chainType = {
   chainType: COMMON.ETH_MAIN,
@@ -49,6 +53,8 @@ const SwapCard = ({ isConnected, accountAddress, accountBalance, openConnectModa
   const [currentChain, setCurrentChain] = useState(COMMON.LUXO_MAIN);
   const [swapTokenFromFormState, setSwapTokenFromFormState] = useState({ ...LUXO_FORM });
   const [swapTokenToFormState, setSwapTokenToFormState] = useState({ ...ETH_FORM });
+  const { chain, chains } = useNetwork()
+  const { openChainModal } = useChainModal();
 
   const onChangeVal = (tokenAmount: number) => {
     if (currentChain == COMMON.ETH_MAIN) {
@@ -75,11 +81,12 @@ const SwapCard = ({ isConnected, accountAddress, accountBalance, openConnectModa
   }
 
   const onSwap = () => {
-    if (currentChain == COMMON.LUXO_MAIN) {
+    openChainModal();
+    if (chain.id == COMMON.ETH_MAIN) {
       setSwapTokenFromFormState({ ...ETH_FORM });
       setSwapTokenToFormState({ ...LUXO_FORM })
       setCurrentChain(COMMON.ETH_MAIN);
-    } else if (currentChain == COMMON.ETH_MAIN) {
+    } else if (chain.id == COMMON.LUXO_MAIN) {
       setSwapTokenFromFormState({ ...LUXO_FORM });
       setSwapTokenToFormState({ ...ETH_FORM });
       setCurrentChain(COMMON.LUXO_MAIN);

@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 
-import { useConnectModal } from "@rainbow-me/rainbowkit";
+import { useConnectModal, useChainModal } from "@rainbow-me/rainbowkit";
 
-import { useAccount, useDisconnect, useEnsAvatar, useEnsName, useBalance } from "wagmi";
+import { useAccount, useDisconnect, useEnsAvatar, useEnsName, useBalance, useSwitchNetwork } from "wagmi";
 
 import SwapCard from "@/components/home/SwapCard";
 
