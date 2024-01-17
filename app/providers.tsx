@@ -27,25 +27,25 @@ import {
 } from 'wagmi/chains';
 
 const luxochain_mainnet = {
-    id: 42,
-    name: 'LUKSO',
-    network: 'LUKSO',
-    iconUrl: 'https://icons8.com/icon/Lvi9wlesXBIE/chain',
-    iconBackground: '#fff',
-    nativeCurrency: {
-      decimals: 18,
-      name: 'LYX',
-      symbol: 'LYX',
-    },
-    rpcUrls: {
-      public: { http: ['https://rpc.lukso.gateway.fm'] },
-      default: { http: ['https://rpc.lukso.gateway.fm'] },
-    },
-    blockExplorers: {
-      default: { name: 'Luxoscan', url: 'https://explorer.execution.mainnet.lukso.network/' },
-      etherscan: { name: 'Luxoscan', url: 'https://explorer.execution.mainnet.lukso.network/' },
-    },
-    testnet: false,
+  id: 42,
+  name: 'LUKSO',
+  network: 'LUKSO',
+  iconUrl: 'https://icons8.com/icon/Lvi9wlesXBIE/chain',
+  iconBackground: '#fff',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'LYX',
+    symbol: 'LYX',
+  },
+  rpcUrls: {
+    public: { http: ['https://rpc.lukso.gateway.fm'] },
+    default: { http: ['https://rpc.lukso.gateway.fm'] },
+  },
+  blockExplorers: {
+    default: { name: 'Luxoscan', url: 'https://explorer.execution.mainnet.lukso.network/' },
+    etherscan: { name: 'Luxoscan', url: 'https://explorer.execution.mainnet.lukso.network/' },
+  },
+  testnet: false,
 }
 
 const luxochain_testnet = {
@@ -85,7 +85,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
   [publicProvider()]
 );
 
-const projectId:string = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECTID || "";
+const projectId: string = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECTID || "";
 
 const { wallets } = getDefaultWallets({
   appName: 'RainbowKit Wallet',
@@ -102,7 +102,7 @@ const connectors = connectorsForWallets([
   {
     groupName: 'Other',
     wallets: [
-    //   argentWallet({ projectId, chains }),
+      //   argentWallet({ projectId, chains }),
       trustWallet({ projectId, chains }),
       ledgerWallet({ projectId, chains }),
     ],
