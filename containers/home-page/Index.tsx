@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useConnectModal, useChainModal } from "@rainbow-me/rainbowkit";
 import { useAccount, useDisconnect, useEnsAvatar, useEnsName, useBalance, useSwitchNetwork, useNetwork } from "wagmi";
 import { mainnet } from '@wagmi/core/chains'
+import { switchNetwork } from '@wagmi/core'
 
 import SwapCard from "@/components/home/SwapCard";
 
@@ -41,7 +42,7 @@ export default function Home() {
           </Link>
         </p>
         <div className="py-10 px-10 rounded-xl border-2 border-blue-900 bg-gray-900">
-          <SwapCard isConnected={isConnected} accountAddress={address as string} accountBalance={data?.formatted || ""} openConnectModal={openConnectModal} chain={chain} openChainModal={openChainModal}></SwapCard>
+          <SwapCard isConnected={isConnected} accountAddress={address as string} accountBalance={data?.formatted || ""} openConnectModal={openConnectModal} chain={chain} switchNetwork={switchNetwork}></SwapCard>
           {!isConnected ? (
             <button
               className="bg-indigo-700 hover:bg-indigo-800 py-3 rounded-xl w-full mt-4"

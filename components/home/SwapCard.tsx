@@ -44,9 +44,9 @@ const LUXO_FORM: chainType = {
   tokenPrice: 1,
 }
 
-type props = { isConnected: boolean, accountAddress: string, accountBalance: string, openConnectModal: any, chain: any, openChainModal: any };
+type props = { isConnected: boolean, accountAddress: string, accountBalance: string, openConnectModal: any, chain: any, switchNetwork: any };
 
-const SwapCard = ({ isConnected, accountAddress, accountBalance, openConnectModal, chain, openChainModal }: props) => {
+const SwapCard = ({ isConnected, accountAddress, accountBalance, openConnectModal, chain, switchNetwork }: props) => {
   const [currentChain, setCurrentChain] = useState(COMMON.LUXO_MAIN);
   const [swapTokenFromFormState, setSwapTokenFromFormState] = useState({ ...LUXO_FORM });
   const [swapTokenToFormState, setSwapTokenToFormState] = useState({ ...ETH_FORM });
@@ -89,10 +89,14 @@ const SwapCard = ({ isConnected, accountAddress, accountBalance, openConnectModa
     }
   }
 
-  const onSwap = () => {
-    console.log(isConnected);
-    if (isConnected)
-      openChainModal();
+  const onSwap = async () => {
+    let modifyChainId = COMMON.ETH_MAIN;
+    if (currentChain == COMMON.ETH_MAIN) {
+      modifyChainId = COMMON.LUXO_MAIN;
+    }
+    const network = await switchNetwork({
+      chainId: modifyChainId,
+    })
   };
 
   return (
