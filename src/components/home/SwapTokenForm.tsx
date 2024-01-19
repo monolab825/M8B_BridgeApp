@@ -1,40 +1,29 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useLocale, useTranslations } from 'next-intl';
+import SwapCard from "./SwapCard";
+
+import { SwapCardProps } from "@/src/utils/types";
 
 type props = {
-  send: boolean;
   chainIcon: string;
-  chainName: string;
-  btnText: string;
-  actionText: string;
   tokenIcon: string;
-  tokenText: string;
-  tokenAmount?: number;
   onChangeVal: any;
-  isConnected: boolean,
-  accountAddress: string,
-  accountBalance: string,
   openConnectModal: any,
-  handleMax: any
+  handleMax: any,
+  swapTokenFormData: SwapCardProps
 }
 
-const SwapTokenForm = ({ send,
+const SwapTokenForm = ({
   chainIcon,
-  chainName,
-  actionText,
   tokenIcon,
-  tokenText,
-  tokenAmount,
   onChangeVal,
-  isConnected,
-  accountAddress,
-  accountBalance,
   openConnectModal,
-  handleMax
+  handleMax,
+  swapTokenFormData
 }: props) => {
-  const [sendAmount, setSendAmount] = useState(0);
-  const [receiveAmount, setReceiveAmount] = useState(0);
+  // const [sendAmount, setSendAmount] = useState(0);
+  // const [receiveAmount, setReceiveAmount] = useState(0);
   // const t = useTranslations('Providers');
 
   const handleMaxButtonClick = () => {
@@ -48,7 +37,7 @@ const SwapTokenForm = ({ send,
   return (
     <>
       {/* <h1>{t('title')}</h1> */}
-      <p className="py-3">{send ? "From:" : "To:"}</p>
+      <p className="py-3">{swapTokenFormData.send ? swapTokenFormData.fromText : swapTokenFormData.ToText}</p>
       <div className="lg:flex md:flex sm:flex w-full gap-1">
         <div className="py-2 bg-gray-800 rounded-xl py-5 px-5 mt-2">
           <Image
@@ -59,29 +48,29 @@ const SwapTokenForm = ({ send,
             className="m-auto"
           />
           <div className="text-center pt-4">
-            <p className="">{chainName}</p>
-            {!isConnected ? (
+            <p className="">{swapTokenFormData.chainName}</p>
+            {!swapTokenFormData.isConnected ? (
               <span
                 className="underline hover:cursor-pointer"
                 onClick={openConnectModal}
               >
-                Connect Wallet
+                {swapTokenFormData.btnText}
               </span>
             ) : (
-              <p className="">{truncate(accountAddress, 6, 38)}</p>
+              <p className="">{truncate(swapTokenFormData.accountAddress, 6, 38)}</p>
             )}
           </div>
         </div>
         <div className="grow bg-gray-800 rounded-xl py-5 px-5 mt-2">
-          <p className="text-blue-200 text-sm">{actionText}:</p>
+          <p className="text-blue-200 text-sm">{swapTokenFormData.actionText}:</p>
           <div className="flex justify-between mt-3">
             <div className="text-2xl">
-              {send ? (
+              {swapTokenFormData.send ? (
                 <input
                   type="Number"
                   className="bg-transparent w-[calc(100%-10px)] outline-none"
                   autoFocus={true}
-                  value={tokenAmount}
+                  value={swapTokenFormData.tokenAmount}
                   onChange={(e) => onChangeVal(Number(e.target.value))}
                 />
               ) : (
@@ -89,27 +78,27 @@ const SwapTokenForm = ({ send,
                   type="Number"
                   className="bg-transparent w-[calc(100%-10px)] outline-none"
                   disabled
-                  value={tokenAmount}
+                  value={swapTokenFormData.tokenAmount}
                 />
                 // <div className="w-[calc(100%-30px)]">{tokenAmount}</div>
               )}
             </div>
             <div className="flex justify-between ">
               <Image src={tokenIcon} alt="lyx" />
-              <div className="ml-2 mt-1">{tokenText}</div>
+              <div className="ml-2 mt-1">{swapTokenFormData.tokenText}</div>
             </div>
           </div>
           <div className="mt-[25px]">
             <div className="flex text-blue-200 text-sm">
-              <div className="mr-auto">$0.0</div>
-              {send && (
+              <div className="mr-auto">${swapTokenFormData.priceVal?.toString()}</div>
+              {swapTokenFormData.send && (
                 <div className="ml-auto">
-                  Balance: {accountBalance}
+                  {swapTokenFormData.balanceText}: {swapTokenFormData.accountBalance}
                   <span
                     className="underline ml-2 hover:cursor-pointer"
                     onClick={handleMaxButtonClick}
                   >
-                    Max
+                    {swapTokenFormData.maxText}
                   </span>
                 </div>
               )}

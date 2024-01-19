@@ -10,6 +10,7 @@ import SwapTokenForm from "./SwapTokenForm";
 import SwapButton from "./SwapButton";
 
 import { chainType } from "@/src/utils/types";
+import { SwapCardStrings, SwapCardProps } from "@/src/utils/types";
 
 
 const ETH_FORM: chainType = {
@@ -44,9 +45,9 @@ const LUXO_FORM: chainType = {
   tokenPrice: 1,
 }
 
-type props = { isConnected: boolean, accountAddress: string, accountBalance: string, openConnectModal: any, chain: any, switchNetwork: any };
+type props = { isConnected: boolean, accountAddress: string, accountBalance: string, openConnectModal: any, chain: any, switchNetwork: any, swapcard_strings: SwapCardStrings };
 
-const SwapCard = ({ isConnected, accountAddress, accountBalance, openConnectModal, chain, switchNetwork }: props) => {
+const SwapCard = ({ isConnected, accountAddress, accountBalance, openConnectModal, chain, switchNetwork, swapcard_strings }: props) => {
   const [currentChain, setCurrentChain] = useState(COMMON.LUXO_MAIN);
   const [swapTokenFromFormState, setSwapTokenFromFormState] = useState({ ...LUXO_FORM });
   const [swapTokenToFormState, setSwapTokenToFormState] = useState({ ...ETH_FORM });
@@ -77,6 +78,40 @@ const SwapCard = ({ isConnected, accountAddress, accountBalance, openConnectModa
     }
   };
 
+  const swapTokenSendForm: SwapCardProps = {
+    send: true,
+    chainName: swapTokenFromFormState.chainName,
+    btnText: swapcard_strings.connect_button_txt,
+    actionText: swapcard_strings.send_txt,
+    tokenText: swapTokenFromFormState.tokenText,
+    tokenAmount: swapTokenFromFormState.tokenAmount,
+    isConnected: isConnected,
+    accountAddress: accountAddress,
+    accountBalance: accountBalance,
+    balanceText: swapcard_strings.balance_txt,
+    maxText: swapcard_strings.max_txt,
+    priceVal: 0.0,
+    fromText: swapcard_strings.from_label_txt,
+    ToText: swapcard_strings.to_label_txt
+  }
+
+  const swapTokenReceiveForm: SwapCardProps = {
+    send: false,
+    chainName: swapTokenToFormState.chainName,
+    btnText: swapcard_strings.connect_button_txt,
+    actionText: swapcard_strings.receive_txt,
+    tokenText: swapTokenToFormState.tokenText,
+    tokenAmount: swapTokenToFormState.tokenAmount,
+    isConnected: isConnected,
+    accountAddress: accountAddress,
+    accountBalance: accountBalance,
+    balanceText: swapcard_strings.balance_txt,
+    maxText: swapcard_strings.max_txt,
+    priceVal: 0.0,
+    fromText: swapcard_strings.from_label_txt,
+    ToText: swapcard_strings.to_label_txt
+  }
+
   const handleMax = () => {
     if (currentChain == COMMON.ETH_MAIN) {
       ETH_FORM.tokenAmount = isConnected ? Number(accountBalance) : 0;
@@ -90,6 +125,8 @@ const SwapCard = ({ isConnected, accountAddress, accountBalance, openConnectModa
   }
 
   const onSwap = async () => {
+    if (!isConnected)
+      return;
     let modifyChainId = COMMON.ETH_MAIN;
     if (currentChain == COMMON.ETH_MAIN) {
       modifyChainId = COMMON.LUXO_MAIN;
@@ -102,37 +139,21 @@ const SwapCard = ({ isConnected, accountAddress, accountBalance, openConnectModa
   return (
     <>
       <SwapTokenForm
-        send={true}
         chainIcon={swapTokenFromFormState.chainIcon}
-        chainName={swapTokenFromFormState.chainName}
-        btnText={swapTokenFromFormState.btnText}
-        actionText={"send"}
         tokenIcon={swapTokenFromFormState.tokenIcon}
-        tokenText={swapTokenFromFormState.tokenText}
-        tokenAmount={swapTokenFromFormState.tokenAmount}
         onChangeVal={onChangeVal}
-        isConnected={isConnected}
-        accountAddress={accountAddress}
-        accountBalance={accountBalance}
         openConnectModal={openConnectModal}
         handleMax={handleMax}
+        swapTokenFormData={swapTokenSendForm}
       />
       <SwapButton onSwap={onSwap}></SwapButton>
       <SwapTokenForm
-        send={false}
         chainIcon={swapTokenToFormState.chainIcon}
-        chainName={swapTokenToFormState.chainName}
-        btnText={swapTokenToFormState.btnText}
-        actionText={"receive"}
         tokenIcon={swapTokenToFormState.tokenIcon}
-        tokenText={swapTokenToFormState.tokenText}
-        tokenAmount={swapTokenToFormState.tokenAmount}
         onChangeVal={onChangeVal}
-        isConnected={isConnected}
-        accountAddress={accountAddress}
-        accountBalance={accountBalance}
         openConnectModal={openConnectModal}
         handleMax={handleMax}
+        swapTokenFormData={swapTokenReceiveForm}
       />
     </>
   );

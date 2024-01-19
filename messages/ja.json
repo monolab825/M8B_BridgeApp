@@ -17,5 +17,28 @@
       "btn_connect": "Connect Wallet",
       "btn_disconnect": "Wallet"
     }
+  },
+  "HomePage": {
+    "Description": {
+      "description1": "Transfer your tokens across blockchains",
+      "description2": "Securely transfer tokens between the LUKSO and Ethereum blockchains",
+      "help_link": "How it works"
+    },
+    "Bridge_From": {
+      "label_txt": "From:",
+      "btn_txt": "Connect Wallet",
+      "send_txt": "send:",
+      "balance_txt": "Balance:",
+      "max_txt": "Max"
+    },
+    "Bridge_To": {
+      "label_txt": "To:",
+      "btn_txt": "Connect Wallet",
+      "recieve_txt": "receive:"
+    },
+    "Bridge_Buttons": {
+      "connect_button_txt": "Connect Wallet",
+      "swap_button_txt": "Swap"
+    }
   }
 }
