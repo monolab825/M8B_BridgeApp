@@ -20,7 +20,7 @@ export default function Home({ params: { locale } }: Props) {
 
   const t = useTranslations('HomePage');
 
-  const head_strings: HompageStrings = {
+  const headStrings: HompageStrings = {
     Description: {
       description1: t('Description.description1'),
       description2: t('Description.description2'),
@@ -48,7 +48,7 @@ export default function Home({ params: { locale } }: Props) {
     <Layout
       className={`mx-auto px-6 sm:px-8 md:px-28 lg:px-20 xl:px-0 max-w-screen-lg`}
     >
-      <HomePage head_strings={head_strings}></HomePage>
+      <HomePage headStrings={headStrings}></HomePage>
     </Layout>
   );
 }

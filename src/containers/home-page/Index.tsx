@@ -21,10 +21,10 @@ import SwapCard from "@/src/components/home/SwapCard";
 import { HompageStrings, SwapCardStrings } from "@/src/utils/types";
 
 type Props = {
-  head_strings: HompageStrings;
+  headStrings: HompageStrings;
 };
 
-export default function Home({ head_strings }: Props) {
+export default function Home({ headStrings }: Props) {
   const { openConnectModal } = useConnectModal();
   const { openChainModal } = useChainModal();
   const { address, isConnected } = useAccount();
@@ -38,13 +38,13 @@ export default function Home({ head_strings }: Props) {
   });
 
   const swapcard_strings: SwapCardStrings = {
-    from_label_txt: head_strings.Bridge_From.label_txt,
-    to_label_txt: head_strings.Bridge_To.label_txt,
-    balance_txt: head_strings.Bridge_From.balance_txt,
-    max_txt: head_strings.Bridge_From.max_txt,
-    connect_button_txt: head_strings.Bridge_From.btn_txt,
-    send_txt: head_strings.Bridge_From.send_txt,
-    receive_txt: head_strings.Bridge_To.recieve_txt,
+    from_label_txt: headStrings.Bridge_From.label_txt,
+    to_label_txt: headStrings.Bridge_To.label_txt,
+    balance_txt: headStrings.Bridge_From.balance_txt,
+    max_txt: headStrings.Bridge_From.max_txt,
+    connect_button_txt: headStrings.Bridge_From.btn_txt,
+    send_txt: headStrings.Bridge_From.send_txt,
+    receive_txt: headStrings.Bridge_To.recieve_txt,
   };
 
   const onSwap = () => {
@@ -63,15 +63,15 @@ export default function Home({ head_strings }: Props) {
         >
           {" "}
           <h1 className="py-1 px-4 font-bold text-2xl text-xl">
-            {head_strings.Description.description1}
+            {headStrings.Description.description1}
           </h1>
           <p className="py-1 px-4 mb-2 text-sm">
-            {head_strings.Description.description2 + " "}
+            {headStrings.Description.description2 + " "}
             <Link
               href="/"
               className="text-blue-200 decoration-blue-200 underline decoration-solid"
             >
-              {head_strings.Description.help_link}
+              {headStrings.Description.help_link}
             </Link>
           </p>
         </motion.div>
@@ -97,14 +97,14 @@ export default function Home({ head_strings }: Props) {
                 className="bg-indigo-700 hover:bg-indigo-800 py-3 rounded-xl w-full mt-4"
                 onClick={openConnectModal}
               >
-                {head_strings.Bridge_Buttons.connect_button_txt}
+                {headStrings.Bridge_Buttons.connect_button_txt}
               </button>
             ) : (
               <button
                 className="bg-indigo-700 hover:bg-indigo-800 py-3 rounded-xl w-full mt-4"
                 onClick={onSwap}
               >
-                {head_strings.Bridge_Buttons.swap_button_txt}
+                {headStrings.Bridge_Buttons.swap_button_txt}
               </button>
             )}
           </div>

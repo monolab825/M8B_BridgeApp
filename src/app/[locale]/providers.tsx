@@ -28,7 +28,7 @@ import {
 
 import { useTranslations } from 'next-intl';
 
-import { luxochain_mainnet } from "@/src/utils/constant";
+import { LUXOCHAIN_MAINNET } from "@/src/utils/constant";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
@@ -39,7 +39,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
     // base,
     // zora,
     // ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [sepolia] : []),
-    luxochain_mainnet,
+    LUXOCHAIN_MAINNET,
     // luxochain_testnet
   ],
   [publicProvider()]
@@ -83,7 +83,7 @@ export function Providers(
   React.useEffect(() => setMounted(true), []);
   return (
     <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains} appInfo={demoAppInfo} initialChain={luxochain_mainnet} locale={locale}>
+      <RainbowKitProvider chains={chains} appInfo={demoAppInfo} initialChain={LUXOCHAIN_MAINNET} locale={locale}>
         {mounted && children}
       </RainbowKitProvider>
     </WagmiConfig>

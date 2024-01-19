@@ -22,9 +22,6 @@ const SwapTokenForm = ({
   handleMax,
   swapTokenFormData,
 }: props) => {
-  // const [sendAmount, setSendAmount] = useState(0);
-  // const [receiveAmount, setReceiveAmount] = useState(0);
-  // const t = useTranslations('Providers');
 
   const handleMaxButtonClick = () => {
     handleMax();
@@ -38,7 +35,6 @@ const SwapTokenForm = ({
 
   return (
     <>
-      {/* <h1>{t('title')}</h1> */}
       <p className="py-3">
         {swapTokenFormData.send
           ? swapTokenFormData.fromText
@@ -92,7 +88,6 @@ const SwapTokenForm = ({
                   disabled
                   value={swapTokenFormData.tokenAmount}
                 />
-                // <div className="w-[calc(100%-30px)]">{tokenAmount}</div>
               )}
             </div>
             <div className="flex justify-between ">

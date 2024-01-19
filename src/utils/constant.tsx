@@ -5,7 +5,7 @@ const COMMON = {
   TOKEN_AMOUNT_MAX: 1e23,
 }
 
-export const luxochain_mainnet = {
+export const LUXOCHAIN_MAINNET = {
   id: 42,
   // name: 'LUKSO',
   name: 'LUKSO',
@@ -28,7 +28,7 @@ export const luxochain_mainnet = {
   testnet: false,
 }
 
-export const luxochain_testnet = {
+export const LUKOCHAIN_TESTNET = {
   id: 4201,
   name: 'LUKSO Testnet',
   network: 'LUKSO Testnet',

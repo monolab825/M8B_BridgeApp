@@ -12,7 +12,7 @@ const Layout = ({ children, className = "" }: Props) => {
 
   const t = useTranslations('LayoutPage');
 
-  const head_strings: HeadStrings = {
+  const headStrings: HeadStrings = {
     btn_history: t('Head.btn_history'),
     btn_connect: t('Head.btn_connect'),
     btn_disconnect: t('Head.btn_disconnect')
@@ -20,7 +20,7 @@ const Layout = ({ children, className = "" }: Props) => {
 
   return (
     <div className="">
-      <Header head_strings={head_strings} />
+      <Header headStrings={headStrings} />
       <main className={`${className}`}>{children}</main>
     </div>
   );
