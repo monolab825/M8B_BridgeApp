@@ -1,0 +1,44 @@
+{
+  "PageTitle": {
+    "title": "橋接應用程式",
+    "description": "由創建下一個應用程式生成"
+  },
+  "Error": {
+    "title": "出了點問題！",
+    "description": "<h1>不幸的是，我們遇到了錯誤。</h1>"
+  },
+  "NotFoundPage": {
+    "title": "找不到網頁",
+    "description": "找不到網頁。"
+  },
+  "LayoutPage": {
+    "Head": {
+      "btn_history": "歷史",
+      "btn_connect": "連接錢包",
+      "btn_disconnect": "錢包"
+    }
+  },
+  "HomePage": {
+    "Description": {
+      "description1": "跨區塊鏈轉移您的代幣",
+      "description2": "在 LUKSO 和以太坊區塊鏈之間安全地轉移代幣",
+      "help_link": "怎麼運作的"
+    },
+    "Bridge_From": {
+      "label_txt": "從：",
+      "btn_txt": "連接錢包",
+      "send_txt": "發送：",
+      "balance_txt": "平衡：",
+      "max_txt": "最大限度"
+    },
+    "Bridge_To": {
+      "label_txt": "到:",
+      "btn_txt": "連接錢包",
+      "recieve_txt": "收到:"
+    },
+    "Bridge_Buttons": {
+      "connect_button_txt": "連接錢包",
+      "swap_button_txt": "交換"
+    }
+  }
+}
