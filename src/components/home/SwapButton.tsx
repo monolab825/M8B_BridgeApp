@@ -14,6 +14,7 @@ const SwapButton = ({ onSwap }: { onSwap: any }) => {
   return (
     <div className="mt-5 text-center">
       <button
+        id="exchange_token_form"
         className="bg-gray-800 rounded-md py-2 px-2 mx-1 "
         onClick={handleSwap}
       >

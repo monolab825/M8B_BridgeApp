@@ -71,13 +71,14 @@ const SwapTokenForm = ({
         </div>
         <div className="grow bg-gray-800 rounded-xl py-5 px-5 mt-2">
           <p className="text-blue-200 text-sm">
-            {swapTokenFormData.actionText}:
+            {swapTokenFormData.actionText}
           </p>
           <div className="flex justify-between mt-3">
             <div className="text-2xl">
               {swapTokenFormData.send ? (
                 <input
                   type="Number"
+                  id="input_send_amount"
                   className="bg-transparent w-[calc(100%-10px)] outline-none"
                   autoFocus={true}
                   value={swapTokenFormData.tokenAmount}
@@ -86,6 +87,7 @@ const SwapTokenForm = ({
               ) : (
                 <input
                   type="Number"
+                  id="display_recive_amount"
                   className="bg-transparent w-[calc(100%-10px)] outline-none"
                   disabled
                   value={swapTokenFormData.tokenAmount}

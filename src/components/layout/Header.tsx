@@ -49,6 +49,7 @@ const NavButtons = ({ head_strings }: Props) => {
       ) : (
         <button
           type="button"
+          id="disconnect"
           className=" bg-indigo-700  text-white px-5 py-2.5 me-2 mb-2 text-sm rounded-lg"
           onClick={() => disconnect()}
         >
