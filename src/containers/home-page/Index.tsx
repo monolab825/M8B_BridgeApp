@@ -20,11 +20,11 @@ import { switchNetwork } from "@wagmi/core";
 import SwapCard from "@/src/components/home/SwapCard";
 import { HompageStrings, SwapCardStrings } from "@/src/utils/types";
 
-type Props = {
+type camelCase = {
   headStrings: HompageStrings;
 };
 
-export default function Home({ headStrings }: Props) {
+export default function Home({ headStrings }: camelCase) {
   const { openConnectModal } = useConnectModal();
   const { openChainModal } = useChainModal();
   const { address, isConnected } = useAccount();

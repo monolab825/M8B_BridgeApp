@@ -1,11 +1,11 @@
 const COMMON = {
-  LUXO_MAIN: 42,
+  LUXSO_MAIN: 42,
   ETH_MAIN: 1,
 
   TOKEN_AMOUNT_MAX: 1e23,
 }
 
-export const LUXOCHAIN_MAINNET = {
+export const LUXSOCHAIN_MAINNET = {
   id: 42,
   // name: 'LUKSO',
   name: 'LUKSO',
@@ -22,13 +22,13 @@ export const LUXOCHAIN_MAINNET = {
     default: { http: ['https://rpc.lukso.gateway.fm'] },
   },
   blockExplorers: {
-    default: { name: 'Luxoscan', url: 'https://explorer.execution.mainnet.lukso.network/' },
-    etherscan: { name: 'Luxoscan', url: 'https://explorer.execution.mainnet.lukso.network/' },
+    default: { name: 'Luxsoscan', url: 'https://explorer.execution.mainnet.lukso.network/' },
+    etherscan: { name: 'Luxsoscan', url: 'https://explorer.execution.mainnet.lukso.network/' },
   },
   testnet: false,
 }
 
-export const LUKOCHAIN_TESTNET = {
+export const LUKSOCHAIN_TESTNET = {
   id: 4201,
   name: 'LUKSO Testnet',
   network: 'LUKSO Testnet',
@@ -44,8 +44,8 @@ export const LUKOCHAIN_TESTNET = {
     default: { http: ['https://rpc.testnet.lukso.network/'] },
   },
   blockExplorers: {
-    default: { name: 'Luxoscan', url: 'https://explorer.execution.testnet.lukso.network/' },
-    etherscan: { name: 'Luxoscan', url: 'https://explorer.execution.testnet.lukso.network/' },
+    default: { name: 'Luxsoscan', url: 'https://explorer.execution.testnet.lukso.network/' },
+    etherscan: { name: 'Luxsoscan', url: 'https://explorer.execution.testnet.lukso.network/' },
   },
   testnet: true,
 }

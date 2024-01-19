@@ -15,8 +15,8 @@ type Props = {
 
 export default function Home({ params: { locale } }: Props) {
 
-  // Enable static rendering
-  unstable_setRequestLocale(locale);
+  // // Enable static rendering
+  // unstable_setRequestLocale(locale);
 
   const t = useTranslations('HomePage');
 
