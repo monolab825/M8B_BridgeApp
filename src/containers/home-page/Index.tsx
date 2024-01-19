@@ -7,7 +7,7 @@ import { useAccount, useDisconnect, useEnsAvatar, useEnsName, useBalance, useSwi
 import { mainnet } from '@wagmi/core/chains'
 import { switchNetwork } from '@wagmi/core'
 
-import SwapCard from "@/components/home/SwapCard";
+import SwapCard from "@/src/components/home/SwapCard";
 
 export default function Home() {
   const { openConnectModal } = useConnectModal();

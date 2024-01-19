@@ -4,12 +4,12 @@ import ETH from "@/public/images/eth.svg";
 import LYX from "@/public/images/lyx.svg";
 import BLYX from "@/public/images/blyx.svg";
 
-import COMMON from "@/utils/constant";
+import COMMON from "@/src/utils/constant";
 
 import SwapTokenForm from "./SwapTokenForm";
 import SwapButton from "./SwapButton";
 
-import { chainType } from "@/utils/types";
+import { chainType } from "@/src/utils/types";
 
 
 const ETH_FORM: chainType = {

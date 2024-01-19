@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { useLocale, useTranslations } from 'next-intl';
 
 type props = {
   send: boolean;
@@ -34,6 +35,7 @@ const SwapTokenForm = ({ send,
 }: props) => {
   const [sendAmount, setSendAmount] = useState(0);
   const [receiveAmount, setReceiveAmount] = useState(0);
+  // const t = useTranslations('Providers');
 
   const handleMaxButtonClick = () => {
     handleMax();
@@ -45,6 +47,7 @@ const SwapTokenForm = ({ send,
 
   return (
     <>
+      {/* <h1>{t('title')}</h1> */}
       <p className="py-3">{send ? "From:" : "To:"}</p>
       <div className="lg:flex md:flex sm:flex w-full gap-1">
         <div className="py-2 bg-gray-800 rounded-xl py-5 px-5 mt-2">

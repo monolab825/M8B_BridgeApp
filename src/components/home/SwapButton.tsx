@@ -1,3 +1,4 @@
+"use client";
 
 import Image from "next/image";
 
@@ -5,6 +6,7 @@ import ArrowUp from "@/public/images/arrowUp.svg";
 import ArrowDown from "@/public/images/arrowDown.svg";
 
 const SwapButton = ({ onSwap }: { onSwap: any }) => {
+
   const handleSwap = () => {
     onSwap();
   };

@@ -7,6 +7,7 @@ const COMMON = {
 
 export const luxochain_mainnet = {
   id: 42,
+  // name: 'LUKSO',
   name: 'LUKSO',
   network: 'LUKSO',
   iconUrl: 'https://icons8.com/icon/Lvi9wlesXBIE/chain',

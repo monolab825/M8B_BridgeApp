@@ -26,7 +26,9 @@ import {
   zora,
 } from 'wagmi/chains';
 
-import { luxochain_mainnet } from "@/utils/constant";
+import { useTranslations } from 'next-intl';
+
+import { luxochain_mainnet } from "@/src/utils/constant";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
@@ -74,12 +76,14 @@ const wagmiConfig = createConfig({
   webSocketPublicClient,
 });
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function Providers(
+  { children, locale }: { children: React.ReactNode, locale: Locale }
+) {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
   return (
     <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains} appInfo={demoAppInfo} initialChain={luxochain_mainnet}>
+      <RainbowKitProvider chains={chains} appInfo={demoAppInfo} initialChain={luxochain_mainnet} locale={locale}>
         {mounted && children}
       </RainbowKitProvider>
     </WagmiConfig>
