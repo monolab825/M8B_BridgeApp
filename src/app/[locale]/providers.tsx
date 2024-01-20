@@ -7,38 +7,22 @@ import {
   connectorsForWallets,
   Locale,
 } from '@rainbow-me/rainbowkit';
-import { useRouter } from 'next/router'
 import {
-  argentWallet,
-  coinbaseWallet,
   trustWallet,
   ledgerWallet,
 } from '@rainbow-me/rainbowkit/wallets';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
 import {
-  arbitrum,
-  base,
   mainnet,
-  optimism,
-  polygon,
-  sepolia,
-  zora,
 } from 'wagmi/chains';
 
-import { luxochain_mainnet } from "@/utils/constant";
+import { LUXSOCHAIN_MAINNET } from "@/src/utils/constant";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
     mainnet,
-    // polygon,
-    // optimism,
-    // arbitrum,
-    // base,
-    // zora,
-    // ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [sepolia] : []),
-    luxochain_mainnet,
-    // luxochain_testnet
+    LUXSOCHAIN_MAINNET,
   ],
   [publicProvider()]
 );
@@ -60,7 +44,6 @@ const connectors = connectorsForWallets([
   {
     groupName: 'Other',
     wallets: [
-      //   argentWallet({ projectId, chains }),
       trustWallet({ projectId, chains }),
       ledgerWallet({ projectId, chains }),
     ],
@@ -74,12 +57,14 @@ const wagmiConfig = createConfig({
   webSocketPublicClient,
 });
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function Providers(
+  { children, locale }: { children: React.ReactNode, locale: Locale }
+) {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
   return (
     <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains} appInfo={demoAppInfo} initialChain={luxochain_mainnet}>
+      <RainbowKitProvider chains={chains} appInfo={demoAppInfo} initialChain={LUXSOCHAIN_MAINNET} locale={locale}>
         {mounted && children}
       </RainbowKitProvider>
     </WagmiConfig>
